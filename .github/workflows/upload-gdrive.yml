@@ -1,0 +1,36 @@
+name: Generate and Upload Screenshot
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Mengizinkan Anda menjalankan script ini secara manual di tab Actions
+
+jobs:
+  screenshot-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Screenshot Test
+        run: npx playwright test tests/screenshot.spec.ts
+        continue-on-error: true
+
+      - name: Upload Screenshot to Google Drive
+        uses: adityak74/google-drive-upload-action@main
+        with:
+          credentials: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+          filename: screenshot-*.png # Mencocokkan nama file screenshot yang tergenerate
+          folderId: 1b9bbjeyrbbHVJFVj-HqPtoQATUJmuGDf # Folder ID Google Drive Anda
+          overwrite: "true"

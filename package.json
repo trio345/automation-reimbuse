@@ -1,0 +1,12 @@
+{
+    "name": "reimbuse-app",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "playwright test"
+    },
+    "devDependencies": {
+        "@playwright/test": "latest",
+        "@types/node": "latest"
+    }
+}
