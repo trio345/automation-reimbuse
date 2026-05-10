@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload Screenshot to Google Drive
-        uses: trio345/automation-reimbuse@main
+        uses: adityak74/google-drive-upload-git-action@main
         with:
           credentials: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
           filename: screenshot-*.png
