@@ -38,6 +38,8 @@ async function uploadLatestScreenshot() {
             mimeType: 'image/png',
             body: fs.createReadStream(filePath),
         },
+        supportsAllDrives: true,
+        includeItemsFromAllDrives: true,
     });
 
     console.log('Uploaded File ID:', response.data.id);
