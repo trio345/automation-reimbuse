@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0/2 * * * *'
+    - cron: '0 16 * * *'
 
 jobs:
   screenshot-and-upload:
