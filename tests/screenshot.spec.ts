@@ -21,8 +21,7 @@ test('click dropdown and take screenshot', async ({ page }) => {
 
     const date = new Date();
     const dateString = date.toISOString().split('T')[0]; // Contoh output: "2026-05-10"
-    const month = date.getMonth();
     const fileName = `screenshot-${dateString}.png`;
 
-    await page.screenshot({ path: `./screenshots/${month}/${fileName}`, fullPage: false });
+    await page.screenshot({ path: `./screenshots/${fileName}`, fullPage: false });
 });
