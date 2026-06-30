@@ -6,6 +6,9 @@ on:
 
   workflow_dispatch:
 
+  schedule:
+    - cron: '0 5 * * *'
+
 jobs:
   screenshot-and-upload:
     runs-on: ubuntu-latest
@@ -27,8 +30,3 @@ jobs:
 
       - name: Run Playwright Screenshot Test
         run: npx playwright test tests/screenshot.spec.ts
-
-      - name: Upload Screenshot to Google Drive
-        run: node upload.js
-        env:
-          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
