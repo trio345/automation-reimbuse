@@ -17,6 +17,9 @@ jobs:
   screenshot-and-upload:
     runs-on: ubuntu-latest
 
+    env:
+      TZ: Asia/Jakarta
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
