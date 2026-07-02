@@ -30,10 +30,6 @@ async function main() {
 
     const row = [];
     
-
-    console.log(images.length);
-
-
     for (let i = 0; i < images.length; i+=4) {
 
         const cells = [];
