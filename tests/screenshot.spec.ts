@@ -8,7 +8,7 @@ test('click dropdown and take screenshot', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 500 });
 
     // 1. Arahkan ke halaman web yang diinginkan
-    await page.goto('https://r.parkee.app/?l=164&ps=427592CF');
+    await page.goto('https://r.parkee.app/?l=164&ps=4BE0B9CF');
 
     // Tunggu loading overlay (MuiLinearProgress-root) hilang jika ada
     await page.waitForSelector('.MuiLinearProgress-root', { state: 'detached', timeout: 5000 }).catch(() => { });
